@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from '../styles/global-styles';
 
+import NavigationBar from './components/navigation-bar';
 import Routes from './routes';
 
 export function App() {
@@ -20,6 +21,7 @@ export function App() {
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
 
+      <NavigationBar />
       <Routes />
 
       <GlobalStyle />
