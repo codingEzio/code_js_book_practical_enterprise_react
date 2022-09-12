@@ -11,6 +11,8 @@ import { Helmet } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from '../styles/global-styles';
 
+import { Container } from '@material-ui/core';
+
 import NavigationBar from './components/navigation-bar';
 import Routes from './routes';
 
@@ -22,7 +24,9 @@ export function App() {
       </Helmet>
 
       <NavigationBar />
-      <Routes />
+      <Container>
+        <Routes />
+      </Container>
 
       <GlobalStyle />
     </BrowserRouter>

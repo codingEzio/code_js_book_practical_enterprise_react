@@ -30,7 +30,7 @@ export default function NavigationBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="absolute">
         <Toolbar>
           <Link className={`${classes.link} ${classes.title}`} to={'/'}>
             Online shop
