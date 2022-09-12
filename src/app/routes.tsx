@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+
+import { LinearProgress } from '@material-ui/core';
 
 import About from './views/pages/About';
 import Home from './views/pages/Home';
@@ -10,33 +12,44 @@ import SettingsAndPravicy from './views/dashboard/settings-and-pravicy';
 
 const Routes = () => {
   return (
-    <Switch>
-      <Route
-        path={'/dashboard'}
-        render={({ match: { path } }) => (
-          <Dashboard>
-            <Switch>
-              <Route
-                exact
-                path={path + '/'}
-                component={DashboardDefaultContent}
-              />
-              <Route
-                exact
-                path={path + '/settings-and-pravicy'}
-                component={SettingsAndPravicy}
-              />
-            </Switch>
-          </Dashboard>
-        )}
-      ></Route>
+    <Suspense fallback={<LinearProgress style={{ margin: '10rem' }} />}>
+      <Switch>
+        <Route
+          path={'/dashboard'}
+          render={({ match: { path } }) => (
+            <Dashboard>
+              <Switch>
+                <Route
+                  exact
+                  path={path + '/'}
+                  component={lazy(() =>
+                    import('./views/dashboard/dashboard-default-content'),
+                  )}
+                />
+                <Route
+                  exact
+                  path={path + '/settings-and-pravicy'}
+                  component={lazy(() =>
+                    import('./views/dashboard/settings-and-pravicy'),
+                  )}
+                />
+              </Switch>
+            </Dashboard>
+          )}
+        ></Route>
 
-      <Route exact path="/about" component={About} />
-      <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/about"
+          component={lazy(() => import('./views/pages/About'))}
+        />
 
-      <Route exact path="/not-found" component={NotFound} />
-      <Redirect exact from={'*'} to={'/not-found'} />
-    </Switch>
+        <Route exact path="/" component={Home} />
+
+        <Route exact path="/not-found" component={NotFound} />
+        <Redirect exact from={'*'} to={'/not-found'} />
+      </Switch>
+    </Suspense>
   );
 };
 
