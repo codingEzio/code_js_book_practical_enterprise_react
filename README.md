@@ -12,6 +12,7 @@
     - `views`
         - `pages/About.tsx`: Base for *about* page
         - `pages/Home.tsx`: Base for *home* page
+        - `pages/NotFound.tsx`: A page for nonexisting routes be forwarded to 
 
 ### License
 
