@@ -8,6 +8,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { PieChart as PieChartIcon } from 'react-feather';
+
+import { Divider, ListSubheader } from '@material-ui/core';
 
 const DashboardSidebarNavigation = () => {
   const classes = useStyles();
@@ -32,25 +35,42 @@ const DashboardSidebarNavigation = () => {
           </Link>
         </Toolbar>
 
-        <Link to={`${url}/settings-and-pravicy`} className={classes.link}>
-          <ListItem button>
-            <ListItemIcon>
-              <SettingsIcon />
-            </ListItemIcon>
+        <Divider />
 
-            <ListItemText primary={'settings and privacy'} />
-          </ListItem>
-        </Link>
+        <div className={classes.drawerContainer}>
+          <List>
+            <ListSubheader>Reports</ListSubheader>
+            <Link to={`${url}`} className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <PieChartIcon />
+                </ListItemIcon>
 
-        <a href={'/'} className={classes.link}>
-          <ListItem button>
-            <ListItemIcon>
-              <ExitToAppIcon />
-            </ListItemIcon>
+                <ListItemText primary={'Dashboard'} />
+              </ListItem>
+            </Link>
 
-            <ListItemText primary={'logout'} />
-          </ListItem>
-        </a>
+            <Link to={`${url}/settings-and-pravicy`} className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <SettingsIcon />
+                </ListItemIcon>
+
+                <ListItemText primary={'settings and privacy'} />
+              </ListItem>
+            </Link>
+
+            <a href={'/'} className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <ExitToAppIcon />
+                </ListItemIcon>
+
+                <ListItemText primary={'logout'} />
+              </ListItem>
+            </a>
+          </List>
+        </div>
       </Drawer>
     </div>
   );
