@@ -37,6 +37,7 @@ const DashboardSidebarNavigation = () => {
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
+
             <ListItemText primary={'settings and privacy'} />
           </ListItem>
         </Link>
@@ -46,6 +47,7 @@ const DashboardSidebarNavigation = () => {
             <ListItemIcon>
               <ExitToAppIcon />
             </ListItemIcon>
+
             <ListItemText primary={'logout'} />
           </ListItem>
         </a>
