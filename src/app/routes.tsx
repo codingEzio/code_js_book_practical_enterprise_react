@@ -21,6 +21,11 @@ const Routes = () => {
                 path={path + '/'}
                 component={DashboardDefaultContent}
               />
+              <Route
+                exact
+                path={path + '/settings-and-pravicy'}
+                component={SettingsAndPravicy}
+              />
             </Switch>
           </Dashboard>
         )}

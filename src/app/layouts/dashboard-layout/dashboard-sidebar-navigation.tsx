@@ -5,6 +5,9 @@ import { useRouteMatch } from 'react-router';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
+import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const DashboardSidebarNavigation = () => {
   const classes = useStyles();
@@ -28,6 +31,15 @@ const DashboardSidebarNavigation = () => {
             Logo with link
           </Link>
         </Toolbar>
+
+        <Link to={`${url}/settings-and-pravicy`} className={classes.link}>
+          <ListItem button>
+            <ListItemIcon>
+              <SettingsIcon />
+              <ListItemText primary={'settings and privacy'} />
+            </ListItemIcon>
+          </ListItem>
+        </Link>
       </Drawer>
     </div>
   );
