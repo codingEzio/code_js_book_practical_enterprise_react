@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react';
 
-import { Theme, useTheme } from '@material-ui/core/styles';
+import Chart from 'react-apexcharts';
+import {
+  Box,
+  Card,
+  CardContent,
+  Container,
+  Grid,
+  Typography,
+  useTheme,
+} from '@material-ui/core';
+import { Theme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/styles';
 
 import { getSalesAxios } from 'services/saleService';
 import { SaleType } from 'models/sale-type';
+import Page from 'app/components/page';
 
 const useStyles = makeStyles(() => ({
   root: { minHeight: '100%' },
@@ -87,9 +98,34 @@ const DashboardDefaultContent = () => {
   };
 
   return (
-    <div>
-      <h1>DashboardDefaultContent</h1>
-    </div>
+    <Page className={classes.root} title="Dashboard">
+      <Container maxWidth={'sm'}>
+        <Typography variant="h4" color="primary">
+          Dashboard
+        </Typography>
+
+        <Box my={5}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h5" color="textPrimary">
+                    Sales
+                  </Typography>
+
+                  <Chart
+                    options={getChartStyling(theme)}
+                    series={sales}
+                    type="bar"
+                    height="100%"
+                  />
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </Page>
   );
 };
 
