@@ -26,7 +26,6 @@
     "axios": "0.27.0",
     "cra-template-rb": "1.0.2",
     "cross-env": "7.0.2",
-    "cypress": "10.7.0",
     "eslint-config-prettier": "6.10.1",
     "eslint-plugin-prettier": "3.1.2",
     "fontfaceobserver": "2.1.0",
@@ -64,7 +63,8 @@
   "devDependencies": {
     "concurrently": "5.3.0",
     "json-server": "0.16.3",
-    "json-server-auth": "2.0.2"
+    "json-server-auth": "2.0.2",
+    "cypress": "6.0.0"
   },
   "scripts": {
     "start": "BROWSER=none react-scripts start",
