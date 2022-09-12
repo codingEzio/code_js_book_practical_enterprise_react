@@ -40,6 +40,15 @@ const DashboardSidebarNavigation = () => {
             </ListItemIcon>
           </ListItem>
         </Link>
+
+        <a href={'/'} className={classes.link}>
+          <ListItem button>
+            <ListItemIcon>
+              <ExitToAppIcon />
+            </ListItemIcon>
+            <ListItemText primary={'logout'} />
+          </ListItem>
+        </a>
       </Drawer>
     </div>
   );
