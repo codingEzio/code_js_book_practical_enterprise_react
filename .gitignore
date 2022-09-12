@@ -8,6 +8,7 @@ stats.json
 .pnp.js
 
 # misc
+.idea
 .eslintcache
 .DS_Store
 npm-debug.log*
