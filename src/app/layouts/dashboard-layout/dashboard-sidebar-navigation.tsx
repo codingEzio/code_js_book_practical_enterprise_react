@@ -28,7 +28,7 @@ const DashboardSidebarNavigation = () => {
           className={classes.toolbar}
         >
           <Link to={`${url}`} className={classes.logoWithLink}>
-            Logo with link
+            Logo
           </Link>
         </Toolbar>
 
@@ -36,8 +36,8 @@ const DashboardSidebarNavigation = () => {
           <ListItem button>
             <ListItemIcon>
               <SettingsIcon />
-              <ListItemText primary={'settings and privacy'} />
             </ListItemIcon>
+            <ListItemText primary={'settings and privacy'} />
           </ListItem>
         </Link>
 
