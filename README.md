@@ -10,7 +10,7 @@
     - `index.tsx`: The whole layout including imported *pages*
     - `routes.tsx`: Routes for pages
     - dir `components/`
-      - `navigation-bar.tsx`: Copied from official example for us to tweak
+      - `page.tsx`: A re-useable component which accept title as a parameter
     - dir `views/`
       - dir `pages/`
         - `About.tsx`: Base for *about* page
@@ -20,8 +20,12 @@
         - `dashboard-default-content.tsx`: Default content for *`/dashboard`*
         - `settings-and-privacy.tsx`: Content for sidebar navigation *`settings-and-privacy`*
     - dir `layouts/`
-      - `dashboard-layout/dashboard.tsx`: Left side container for passing down *props* (data and HTML)
-      - `dashboard-layout/dashboard-sidebar-navigation.tsx`: Sidebar navigation items like *`settings-and-privacy`*, *`logout`*
+      - dir `dashboard-layout/`
+        - `dashboard.tsx`: Left side container for passing down *props* (data and HTML)
+        - `dashboard-sidebar-navigation.tsx`: Sidebar navigation items like *`settings-and-privacy`*, *`logout`* and the *interactive charts*
+      - dir `main-layout/`
+        - `index.tsx`: Configure the homepage styling (spacing, layout and such)
+        - `navigation-bar.tsx`: Global navigation for different pages
   - `api/`
     - `axios.ts`: Pre-configured API for frontend fetching
   - `models/`
