@@ -22,6 +22,13 @@
     - dir `layouts/`
       - `dashboard-layout/dashboard.tsx`: Left side container for passing down *props* (data and HTML)
       - `dashboard-layout/dashboard-sidebar-navigation.tsx`: Sidebar navigation items like *`settings-and-privacy`*, *`logout`*
+  - `api/`
+    - `axios.ts`: Pre-configured API for frontend fetching
+  - `models/`
+    - `sale-type.ts`: Typing for (`axios`) fetched result
+  - `services/`
+    - `saleService.ts`: Wrap and expose the API calls
+- `/db.json`
 
 ### License
 
