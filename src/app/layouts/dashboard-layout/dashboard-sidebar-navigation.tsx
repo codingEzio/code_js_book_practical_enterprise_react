@@ -1,22 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRouteMatch } from 'react-router';
 
+import { Collapse, Divider, ListSubheader } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsIcon from '@material-ui/icons/Settings';
-import { PieChart as PieChartIcon } from 'react-feather';
-
-import { Divider, ListSubheader } from '@material-ui/core';
+import {
+  PieChart as PieChartIcon,
+  ShoppingCart as ShoppingCartIcon,
+  ChevronUp as ChevronUpIcon,
+  ChevronDown as ChevronDownIcon,
+  List as ListIcon,
+  FilePlus as FilePlusIcon,
+  LogOut as LogOutIcon,
+} from 'react-feather';
 
 const DashboardSidebarNavigation = () => {
-  const classes = useStyles();
   const { url } = useRouteMatch();
+  const [open, setOpen] = useState(false);
+
+  const classes = useStyles();
 
   useEffect(() => {}, []);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
   return (
     <div className={classes.root}>
@@ -50,6 +63,40 @@ const DashboardSidebarNavigation = () => {
               </ListItem>
             </Link>
 
+            <ListSubheader>Management</ListSubheader>
+            <ListItem button onClick={handleClick}>
+              <ListItemIcon>
+                <ShoppingCartIcon />
+              </ListItemIcon>
+
+              <ListItemText primary="Products" />
+              {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            </ListItem>
+
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <Link to={`${url}/list-products`} className={classes.link}>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <ListIcon />
+                    </ListItemIcon>
+
+                    <ListItemText primary="List Products" />
+                  </ListItem>
+                </Link>
+
+                <Link to={`${url}/create-product`} className={classes.link}>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <FilePlusIcon />
+                    </ListItemIcon>
+
+                    <ListItemText primary="Create Product" />
+                  </ListItem>
+                </Link>
+              </List>
+            </Collapse>
+
             <Link to={`${url}/settings-and-pravicy`} className={classes.link}>
               <ListItem button>
                 <ListItemIcon>
@@ -82,6 +129,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme =>
   createStyles({
     root: { display: 'flex' },
+    nested: { paddingLeft: theme.spacing(4) },
     drawer: { width: drawerWidth, flexShrink: 0 },
     drawerPaper: { width: drawerWidth },
     drawerContainer: { overflow: 'auto' },
