@@ -7,8 +7,6 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import SettingsIcon from '@material-ui/icons/Settings';
 import {
   PieChart as PieChartIcon,
   ShoppingCart as ShoppingCartIcon,
@@ -97,20 +95,10 @@ const DashboardSidebarNavigation = () => {
               </List>
             </Collapse>
 
-            <Link to={`${url}/settings-and-pravicy`} className={classes.link}>
-              <ListItem button>
-                <ListItemIcon>
-                  <SettingsIcon />
-                </ListItemIcon>
-
-                <ListItemText primary={'settings and privacy'} />
-              </ListItem>
-            </Link>
-
             <a href={'/'} className={classes.link}>
               <ListItem button>
                 <ListItemIcon>
-                  <ExitToAppIcon />
+                  <LogOutIcon />
                 </ListItemIcon>
 
                 <ListItemText primary={'logout'} />

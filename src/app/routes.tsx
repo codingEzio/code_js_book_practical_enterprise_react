@@ -23,13 +23,6 @@ const Routes = () => {
                     import('./views/dashboard/dashboard-default-content'),
                   )}
                 />
-                <Route
-                  exact
-                  path={path + '/settings-and-pravicy'}
-                  component={lazy(() =>
-                    import('./views/dashboard/settings-and-pravicy'),
-                  )}
-                />
 
                 <Route
                   exact
