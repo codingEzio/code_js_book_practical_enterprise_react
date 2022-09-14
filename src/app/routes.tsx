@@ -33,6 +33,21 @@ const Routes = () => {
                     import('./views/dashboard/settings-and-pravicy'),
                   )}
                 />
+
+                <Route
+                  exact
+                  path={path + '/list-products'}
+                  component={lazy(() =>
+                    import('./views/dashboard/product/ProductListView/'),
+                  )}
+                />
+                <Route
+                  exact
+                  path={path + '/create-product'}
+                  component={lazy(() =>
+                    import('./views/dashboard/product/ProductCreateView'),
+                  )}
+                />
               </Switch>
             </Dashboard>
           )}
